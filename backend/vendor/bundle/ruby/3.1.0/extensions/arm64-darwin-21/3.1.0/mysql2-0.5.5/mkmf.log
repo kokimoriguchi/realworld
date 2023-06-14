@@ -1,0 +1,752 @@
+have_func: checking for rb_absint_size()... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/usr/local/opt/openssl/lib     -lruby.3.1   "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/usr/local/opt/openssl/lib     -lruby.3.1   "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_absint_size; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_absint_singlebit_p()... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/usr/local/opt/openssl/lib     -lruby.3.1   "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_absint_singlebit_p; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_gc_mark_movable()... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/usr/local/opt/openssl/lib     -lruby.3.1   "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_gc_mark_movable; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_wait_for_single_fd()... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/usr/local/opt/openssl/lib     -lruby.3.1   "
+conftest.c:14:57: error: use of undeclared identifier 'rb_wait_for_single_fd'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_wait_for_single_fd; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_wait_for_single_fd; return !p; }
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/usr/local/opt/openssl/lib     -lruby.3.1   "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void rb_wait_for_single_fd();
+15: int t(void) { rb_wait_for_single_fd(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_enc_interned_str() in ruby.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/usr/local/opt/openssl/lib     -lruby.3.1   "
+conftest.c:16:57: error: use of undeclared identifier 'rb_enc_interned_str'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_enc_interned_str; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_enc_interned_str; return !p; }
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/usr/local/opt/openssl/lib     -lruby.3.1   "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void rb_enc_interned_str();
+17: int t(void) { rb_enc_interned_str(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+/* end */
+
+--------------------
+
+have_header: checking for errmsg.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <errmsg.h>
+/* end */
+
+--------------------
+
+have_const: checking for SSL_MODE_DISABLED in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)SSL_MODE_DISABLED;
+/* end */
+
+--------------------
+
+have_const: checking for SSL_MODE_PREFERRED in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)SSL_MODE_PREFERRED;
+/* end */
+
+--------------------
+
+have_const: checking for SSL_MODE_REQUIRED in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)SSL_MODE_REQUIRED;
+/* end */
+
+--------------------
+
+have_const: checking for SSL_MODE_VERIFY_CA in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)SSL_MODE_VERIFY_CA;
+/* end */
+
+--------------------
+
+have_const: checking for SSL_MODE_VERIFY_IDENTITY in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)SSL_MODE_VERIFY_IDENTITY;
+/* end */
+
+--------------------
+
+have_struct_member: checking for MYSQL.net.vio in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+conftest.c:6:39: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+int s = (char *)&((MYSQL*)0)->net.vio - (char *)0;
+                                      ^ ~~~~~~~~~
+1 warning generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <mysql.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((MYSQL*)0)->net.vio - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   return !!argv[argc];
+10: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for MYSQL.net.pvio in mysql.h... -------------------- no
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+conftest.c:6:35: error: no member named 'pvio' in 'struct st_net'; did you mean 'vio'?
+int s = (char *)&((MYSQL*)0)->net.pvio - (char *)0;
+                                  ^~~~
+                                  vio
+/opt/homebrew/opt/mysql@5.7/include/mysql/mysql_com.h:346:8: note: 'vio' declared here
+  Vio *vio;
+       ^
+conftest.c:6:40: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+int s = (char *)&((MYSQL*)0)->net.pvio - (char *)0;
+                                       ^ ~~~~~~~~~
+1 warning and 1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <mysql.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((MYSQL*)0)->net.pvio - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   return !!argv[argc];
+10: }
+/* end */
+
+--------------------
+
+have_const: checking for MYSQL_DEFAULT_AUTH in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)MYSQL_DEFAULT_AUTH;
+/* end */
+
+--------------------
+
+have_const: checking for MYSQL_ENABLE_CLEARTEXT_PLUGIN in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)MYSQL_ENABLE_CLEARTEXT_PLUGIN;
+/* end */
+
+--------------------
+
+have_const: checking for SERVER_QUERY_NO_GOOD_INDEX_USED in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)SERVER_QUERY_NO_GOOD_INDEX_USED;
+/* end */
+
+--------------------
+
+have_const: checking for SERVER_QUERY_NO_INDEX_USED in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)SERVER_QUERY_NO_INDEX_USED;
+/* end */
+
+--------------------
+
+have_const: checking for SERVER_QUERY_WAS_SLOW in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)SERVER_QUERY_WAS_SLOW;
+/* end */
+
+--------------------
+
+have_const: checking for MYSQL_OPTION_MULTI_STATEMENTS_ON in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)MYSQL_OPTION_MULTI_STATEMENTS_ON;
+/* end */
+
+--------------------
+
+have_const: checking for MYSQL_OPTION_MULTI_STATEMENTS_OFF in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)MYSQL_OPTION_MULTI_STATEMENTS_OFF;
+/* end */
+
+--------------------
+
+have_type: checking for my_bool in mysql.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+4: 
+5: /*top*/
+6: typedef my_bool conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Weverything  "
+error: include location '/usr/local/include' is unsafe for cross-compilation [-Werror,-Wpoison-system-directories]
+In file included from conftest.c:1:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby.h:38:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/ruby.h:26:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:76:
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/intern/class.h:289:60: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+void rb_define_method_id(VALUE klass, ID mid, VALUE (*func)(ANYARGS), int arity);
+                                                           ^
+                                                                   void
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/intern/class.h:327:76: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+void rb_define_protected_method(VALUE klass, const char *mid, VALUE (*func)(ANYARGS), int arity);
+                                                                           ^
+                                                                                   void
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/intern/class.h:340:74: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+void rb_define_private_method(VALUE klass, const char *mid, VALUE (*func)(ANYARGS), int arity);
+                                                                         ^
+                                                                                 void
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/intern/class.h:353:73: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+void rb_define_singleton_method(VALUE obj, const char *mid, VALUE(*func)(ANYARGS), int arity);
+                                                                        ^
+                                                                                void
+In file included from conftest.c:1:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby.h:38:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/ruby.h:26:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:77:
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/intern/vm.h:163:8: error: unknown command tag name [-Werror,-Wdocumentation-unknown-command]
+ *     @foo = 5
+       ^~~~
+In file included from conftest.c:1:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby.h:38:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/ruby.h:26:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:78:
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/method.h:99:66: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+void rb_define_method(VALUE klass, const char *mid, VALUE (*func)(ANYARGS), int arity);
+                                                                 ^
+                                                                         void
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/method.h:112:75: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+void rb_define_module_function(VALUE klass, const char *mid, VALUE (*func)(ANYARGS), int arity);
+                                                                          ^
+                                                                                  void
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/method.h:124:62: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+void rb_define_global_function(const char *mid, VALUE (*func)(ANYARGS), int arity);
+                                                             ^
+                                                                     void
+In file included from conftest.c:1:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby.h:38:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/ruby.h:26:
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:270:1: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+RBIMPL_ANYARGS_DECL(rb_define_singleton_method, VALUE, const char *)
+^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:251:73: note: expanded from macro 'RBIMPL_ANYARGS_DECL'
+RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m3(__VA_ARGS__, VALUE(*)(ANYARGS), int); \
+                                                                        ^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:271:1: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+RBIMPL_ANYARGS_DECL(rb_define_protected_method, VALUE, const char *)
+^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:251:73: note: expanded from macro 'RBIMPL_ANYARGS_DECL'
+RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m3(__VA_ARGS__, VALUE(*)(ANYARGS), int); \
+                                                                        ^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:272:1: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+RBIMPL_ANYARGS_DECL(rb_define_private_method, VALUE, const char *)
+^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:251:73: note: expanded from macro 'RBIMPL_ANYARGS_DECL'
+RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m3(__VA_ARGS__, VALUE(*)(ANYARGS), int); \
+                                                                        ^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:273:1: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+RBIMPL_ANYARGS_DECL(rb_define_module_function, VALUE, const char *)
+^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:251:73: note: expanded from macro 'RBIMPL_ANYARGS_DECL'
+RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m3(__VA_ARGS__, VALUE(*)(ANYARGS), int); \
+                                                                        ^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:274:1: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+RBIMPL_ANYARGS_DECL(rb_define_global_function, const char *)
+^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:251:73: note: expanded from macro 'RBIMPL_ANYARGS_DECL'
+RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m3(__VA_ARGS__, VALUE(*)(ANYARGS), int); \
+                                                                        ^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:275:1: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+RBIMPL_ANYARGS_DECL(rb_define_method_id, VALUE, ID)
+^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:251:73: note: expanded from macro 'RBIMPL_ANYARGS_DECL'
+RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m3(__VA_ARGS__, VALUE(*)(ANYARGS), int); \
+                                                                        ^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:276:1: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+RBIMPL_ANYARGS_DECL(rb_define_method, VALUE, const char *)
+^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/anyargs.h:251:73: note: expanded from macro 'RBIMPL_ANYARGS_DECL'
+RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m3(__VA_ARGS__, VALUE(*)(ANYARGS), int); \
+                                                                        ^
+In file included from conftest.c:1:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby.h:38:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/ruby.h:27:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic.h:23:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic/char.h:23:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic/int.h:26:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic/long.h:42:
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/special_consts.h:148:18: error: implicit conversion changes signedness: 'int' to 'unsigned long' [-Werror,-Wsign-conversion]
+    return obj & ~RUBY_Qnil;
+               ~ ^~~~~~~~~~
+In file included from conftest.c:1:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby.h:38:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/ruby.h:27:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic.h:23:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic/char.h:23:
+In file included from /Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic/int.h:26:
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic/long.h:117:29: error: implicit conversion changes signedness: 'long' to 'unsigned long' [-Werror,-Wsign-conversion]
+    const unsigned long j = i;
+                        ~   ^
+/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/arithmetic/long.h:119:29: error: implicit conversion changes signedness: 'const unsigned long' to 'long' [-Werror,-Wsign-conversion]
+    const long          l = k;
+                        ~   ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-compound-token-split-by-macro  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-bad-function-cast  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-conditional-uninitialized  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-covered-switch-default  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-declaration-after-statement  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-disabled-macro-expansion  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-documentation-unknown-command  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-missing-field-initializers  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-missing-variable-declarations  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-padded  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-reserved-id-macro  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-sign-conversion  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-static-in-inline  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-switch-enum  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-undef  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-unreachable-code  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1 -Werror -Wno-used-but-marked-unused  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib "clang -o conftest -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/arm64-darwin21 -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/backward -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include/ruby-3.1.0 -I. -I/opt/homebrew/opt/mysql@5.7/include/mysql -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/include -I/Users/kokimoriguchi/.rbenv/versions/3.1.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -DFULL_SSL_MODE_SUPPORT -Wno-compound-token-split-by-macro -Wno-bad-function-cast -Wno-conditional-uninitialized -Wno-covered-switch-default -Wno-declaration-after-statement -Wno-disabled-macro-expansion -Wno-documentation-unknown-command -Wno-missing-field-initializers -Wno-missing-variable-declarations -Wno-padded -Wno-reserved-id-macro -Wno-sign-conversion -Wno-static-in-inline -Wno-switch-enum -Wno-undef -Wno-unreachable-code -Wno-used-but-marked-unused conftest.c  -L. -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib -L/usr/local/opt/openssl/lib -L/Users/kokimoriguchi/.rbenv/versions/3.1.2/openssl/lib    -L/opt/homebrew/opt/mysql@5.7/lib -lmysqlclient -lssl -lcrypto  -lruby.3.1  -Wl,-rpath,/opt/homebrew/opt/mysql@5.7/lib  "
+ld: warning: directory not found for option '-L/usr/local/opt/openssl/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
