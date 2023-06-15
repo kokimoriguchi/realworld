@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     # JWTをCookieにセット
     cookies[:token] = token
 
-    render json: { status: 'CREATED', data: cookies }
+    render json: { status: 'CREATED', token: token }
   end
 
   private

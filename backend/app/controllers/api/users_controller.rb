@@ -16,7 +16,13 @@ class Api::UsersController < ApplicationController
 
   def show
     # CookieからJWTを取得
-    token = cookies[:token]
+    # token = cookies[:token]
+
+    token = request.headers['Authorization']&.split(' ')&.last  # Authorizationヘッダーからトークンを取得
+
+    unless token
+      return render json: { message: 'unauthorized' }, status: :unauthorized
+    end
 
     # 秘密鍵の取得
     rsa_private = OpenSSL::PKey::RSA.new(File.read(Rails.root.join('auth/service.key')))
