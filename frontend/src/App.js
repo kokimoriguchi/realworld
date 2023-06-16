@@ -4,17 +4,30 @@ import Login from "./components/pages/Login";
 import CreateUser from "./components/pages/CreateUser";
 import Home from "./components/pages/Home";
 import Header from "./components/pages/Header";
+import AuthProvider from "./components/hooks/Auth";
+// import PrivateRoute from "./components/hooks/PrivateRoute";
+import LoginHome from "./components/pages/LoginHome";
+import Article from "./components/pages/Article";
+import DetailArticle from "./components/pages/DetailArticle";
+// import LoginHome from "./components/pages/LoginHome";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="login" element={<Login />} />
-          <Route path="create_user" element={<CreateUser />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <AuthProvider>
+          <Header />
+          <Routes>
+            <Route path="/">
+              <Route path="login" element={<Login />} />
+              <Route path="create_user" element={<CreateUser />} />
+              <Route path="home" element={<Home />} />
+              <Route path="loginHome" element={<LoginHome />} />
+              <Route path="createArticle" element={<Article />} />
+              <Route path="detailArticle/:id" element={<DetailArticle />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );

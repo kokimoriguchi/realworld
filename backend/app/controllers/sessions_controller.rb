@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
   def create
     # ユーザの取得
-    user = User.find_by(email: login_params[:email])&.authenticate(login_params[:password])
+    # seviceディレクトリ内のファイルでモジュールの定義しているのでAuthenticationServiceにそのファイルのメソッド記述で使用可能。
+    user = AuthenticationService.authenticate_user_with_password!(login_params[:email],login_params[:password])
 
     # ペイロードの作成
     payload = {
@@ -15,16 +16,13 @@ class SessionsController < ApplicationController
 
     # JWTの作成
     token = JWT.encode(payload, rsa_private, "RS256")
-
-    # JWTをCookieにセット
     cookies[:token] = token
-
     render json: { status: 'CREATED', token: token }
   end
 
   private
   def login_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
 end

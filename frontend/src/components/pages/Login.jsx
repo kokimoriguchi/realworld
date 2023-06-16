@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
-import axios from "axios";
+import { useContext, useRef } from "react";
+import { AuthContext } from "../hooks/Auth";
+import baseAxios from "../hooks/axios";
 
 const Login = () => {
   const navigate = useNavigate();
   const loginEmailRef = useRef();
   const loginPasswordRef = useRef();
+  const { setAuth } = useContext(AuthContext);
 
   const LoginUser = async (e) => {
     e.preventDefault();
@@ -15,64 +17,70 @@ const Login = () => {
     };
 
     try {
-      const checkLoginResponse = await axios.post(
-        "http://localhost:3001/sign_in",
-        {
-          user: { ...loginDate },
-        }
-      );
+      const checkLoginResponse = await baseAxios.post("/sign_in", {
+        user: { ...loginDate },
+      });
       const token = checkLoginResponse.data.token; // トークンを取得
-      console.log(token);
-      const loginResponse = await axios.get("http://localhost:3001/api/user", {
+
+      const loginResponse = await baseAxios.get("/api/user", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       console.log(loginResponse.data);
-      navigate("home");
+      setAuth(loginResponse.data);
+      navigate("/loginHome");
     } catch (error) {
       console.log(error);
+      alert("loginに失敗しました");
     }
     loginEmailRef.current.value = "";
     loginPasswordRef.current.value = "";
   };
 
   const MoveCreateUser = () => {
-    navigate("create_user");
+    navigate("/create_user");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pt-40">
-      <h1>LOGIN</h1>
-      <form onSubmit={LoginUser}>
-        <div>
-          <input
-            className="w-60 border-zinc-800 border-2"
-            type="text"
-            placeholder="email"
-            ref={loginEmailRef}
-          />
-        </div>
-        <div>
-          <input
-            className="w-60 border-zinc-800 border-2"
-            type="text"
-            placeholder="password"
-            ref={loginPasswordRef}
-          />
-        </div>
-        <button className="w-60 border-zinc-800 border-2" type="submit">
-          Login
-        </button>
-      </form>
-      <button
-        className="w-60 border-zinc-800 border-2"
-        onClick={() => {
-          MoveCreateUser();
-        }}
-      >
-        CreateUser
-      </button>
+    <div className="h-4/5">
+      <div className="flex flex-col items-center justify-center mt-6 mx-auto">
+        <h1 className="text-4xl pb-2">Sign in</h1>
+        <p
+          className="text-green-500 text-sm hover:text-green-700 hover:underline pb-3"
+          onClick={() => {
+            MoveCreateUser();
+          }}
+        >
+          Need an account?
+        </p>
+        <form onSubmit={LoginUser}>
+          <div className="pb-4">
+            <input
+              className="w-96 border-slate-200 rounded-md h-12 border-2"
+              type="text"
+              placeholder="Email"
+              ref={loginEmailRef}
+            />
+          </div>
+          <div className="pb-4">
+            <input
+              className="w-96 border-slate-200 rounded-md h-12 border-2"
+              type="text"
+              placeholder="password"
+              ref={loginPasswordRef}
+            />
+          </div>
+          <div className="flex flex-row-reverse">
+            <button
+              className="w-32 text-white bg-green-500 border-slate-200 rounded-md h-14 text-lg border-2"
+              type="submit"
+            >
+              Sign in
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
