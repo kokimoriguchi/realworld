@@ -28,7 +28,8 @@ class Api::ArticlesController < ApplicationController
   end
 
   def update
-
+    article = Article.find(params[:id])
+    article.update(article_params)
   end
 
   private

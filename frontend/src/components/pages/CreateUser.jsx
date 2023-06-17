@@ -41,7 +41,7 @@ const CreateUser = () => {
         },
       });
       console.log(loginResponse.data);
-      navigate("/home");
+      navigate("/loginHome");
       setAuth(loginResponse.data);
       // リクエスト成功時の処理を記述
     } catch (error) {
@@ -53,7 +53,6 @@ const CreateUser = () => {
     emailRef.current.value = "";
     passwordRef.current.value = "";
     passwordConfirmationRef.current.value = "";
-    // navigate("/");
   };
 
   return (

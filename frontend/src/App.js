@@ -9,6 +9,7 @@ import AuthProvider from "./components/hooks/Auth";
 import LoginHome from "./components/pages/LoginHome";
 import Article from "./components/pages/Article";
 import DetailArticle from "./components/pages/DetailArticle";
+import UpdateArticle from "./components/pages/UpdateArticle";
 // import LoginHome from "./components/pages/LoginHome";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="loginHome" element={<LoginHome />} />
               <Route path="createArticle" element={<Article />} />
               <Route path="detailArticle/:id" element={<DetailArticle />} />
+              <Route path="updateArticle/:id" element={<UpdateArticle />} />
             </Route>
           </Routes>
         </AuthProvider>
