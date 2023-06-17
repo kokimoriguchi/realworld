@@ -17,8 +17,14 @@ class Api::ArticlesController < ApplicationController
     end
   end
 
-  def destroy
+  def show
+    article = Article.find(params[:id])
+    render json: {status: "get", article: article}
+  end
 
+  def destroy
+    article = Article.find(params[:id])
+    article.delete
   end
 
   def update
@@ -27,6 +33,6 @@ class Api::ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :description, :body, :user_id, :tag_list)
+    params.require(:article).permit(:id, :title, :description, :body, :user_id, :tag_list)
   end
 end
