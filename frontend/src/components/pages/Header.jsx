@@ -53,7 +53,7 @@ const Header = () => {
               </li>
               <li className="text-gray-400 hover:text-gray-500">☀︎Setting</li>
               <li className="text-gray-400 hover:text-gray-500">
-                {auth.user.name}
+                user:{auth.user.name}
               </li>
             </>
           ) : (

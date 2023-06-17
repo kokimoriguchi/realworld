@@ -1,81 +1,101 @@
-import { useRef, useContext } from "react";
-import { AuthContext } from "../hooks/Auth";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import baseAxios from "../hooks/axios";
 import { useNavigate } from "react-router-dom";
 
-const Article = () => {
-  const articleTitleRef = useRef();
-  const articleDescriptionRef = useRef();
-  const articleBodyRef = useRef();
-  const articleTagRef = useRef();
-  const { auth } = useContext(AuthContext);
+const UpdateArticle = () => {
+  const { id } = useParams();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [body, setBody] = useState("");
+  const [tagList, setTagList] = useState("");
   const navigate = useNavigate();
 
-  const backHome = () => {
-    navigate("/loginHome");
-  };
-
-  const CreateArticle = async (e) => {
-    e.preventDefault();
-    const articleData = {
-      title: articleTitleRef.current.value,
-      description: articleDescriptionRef.current.value,
-      body: articleBodyRef.current.value,
-      user_id: auth.user.id,
+  useEffect(() => {
+    const getUpdateArticle = async () => {
+      try {
+        const response = await baseAxios.get(`api/articles/${id}`);
+        const responseData = response.data.article;
+        // useEffect内で各stateを更新することでinput内の表示を可能にしている。または空文字を入れておかないと注意が出る。
+        setTitle(responseData.title || "");
+        setDescription(responseData.description || "");
+        setBody(responseData.body || "");
+        setTagList(responseData.tag_list || "");
+      } catch (error) {
+        console.log(error);
+      }
     };
-    console.log(articleData);
+    getUpdateArticle();
+  }, [id]);
+
+  const handleUpdateArticle = async (e) => {
+    e.preventDefault();
+    const updateData = {
+      title: title,
+      description: description,
+      body: body,
+      tag_list: tagList,
+    };
 
     try {
-      const response = await baseAxios.post("/api/articles", {
-        article: { ...articleData },
+      await baseAxios.patch(`/api/articles/${id}`, {
+        article: { ...updateData },
       });
-      console.log(response.data);
+      console.log(updateData);
     } catch (error) {
       console.log(error);
     }
-    articleTitleRef.current.value = "";
-    articleDescriptionRef.current.value = "";
-    articleBodyRef.current.value = "";
-    backHome();
+    setTitle("");
+    setDescription("");
+    setBody("");
+    setTagList("");
+    navigate(`/detailArticle/${id}`);
   };
+
   return (
     <div>
       <div className="">
         <div className=" w-full flex flex-col items-center justify-center mt-6">
           <form
-            onSubmit={CreateArticle}
             className="w-full flex flex-col items-center"
+            onSubmit={handleUpdateArticle}
           >
             <div className="pb-4 w-screen justify-center flex">
               <input
                 className="w-3/5 border-slate-200 rounded-md h-12 border-2"
                 type="text"
+                value={title}
                 placeholder="Article Title"
-                ref={articleTitleRef}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="pb-4 w-screen justify-center flex">
               <input
                 className=" w-3/5 border-slate-200 rounded-md h-12 border-2"
                 type="text"
+                value={description}
                 placeholder="What's this article about?"
-                ref={articleDescriptionRef}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </div>
             <div className="pb-4 w-screen justify-center flex">
-              <textarea
+              <input
                 className="w-3/5 border-slate-200 rounded-md h-52 border-2"
                 type="text"
+                value={body}
                 placeholder="Write your article (in markdown)"
-                ref={articleBodyRef}
+                onChange={(e) => {
+                  setBody(e.target.value);
+                }}
               />
             </div>
             <div className="pb-4 w-screen justify-center flex">
               <input
                 className="w-3/5 border-slate-200 rounded-md h-12 border-2"
                 type="text"
+                value={tagList}
                 placeholder="Enter tags"
-                ref={articleTagRef}
+                onChange={(e) => setTagList(e.target.value)}
               />
             </div>
 
@@ -93,4 +113,5 @@ const Article = () => {
     </div>
   );
 };
-export default Article;
+
+export default UpdateArticle;
