@@ -29,7 +29,6 @@ const DetailArticle = () => {
   const handleArticleDelete = async () => {
     try {
       await baseAxios.delete(`api/articles/${id}`);
-      console.log("delete");
       deleteArticle();
     } catch (error) {
       console.log(error);

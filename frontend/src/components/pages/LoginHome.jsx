@@ -7,19 +7,31 @@ const LoginHome = () => {
   const [allArticles, setAllArticles] = useState([]);
   const navigate = useNavigate();
   const [feed, setFeed] = useState(true);
+  const [allUsers, setAllUsers] = useState([]);
   const { auth } = useContext(AuthContext);
 
   useEffect(() => {
     const indexArticle = async () => {
       try {
         const response = await baseAxios.get("api/articles");
-        console.log(response);
         setAllArticles(response.data.data);
       } catch (error) {
         console.log(error);
       }
     };
     indexArticle();
+  }, []);
+
+  useEffect(() => {
+    const allUsers = async () => {
+      try {
+        const responseUsers = await baseAxios.get("api/users");
+        setAllUsers(responseUsers.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    allUsers();
   }, []);
 
   const handleDetailArticle = (article) => {
@@ -78,7 +90,12 @@ const LoginHome = () => {
               ? allArticles.map((article, index) => (
                   <div key={index}>
                     <div className="pb-3">
-                      <p>☺️{auth.user.name}</p>
+                      {allUsers.map((user, index) => {
+                        if (user.id === article.user_id) {
+                          return <p key={index}>☺️{user.name}</p>;
+                        }
+                        return null;
+                      })}
                       <p className="opacity-30 text-xs">{article.created_at}</p>
                     </div>
                     <div

@@ -26,10 +26,9 @@ const CreateUser = () => {
     console.log(userData);
 
     try {
-      const response = await baseAxios.post("/api/users", {
+      await baseAxios.post("/api/users", {
         user: { ...userData },
       });
-      console.log(response.data);
 
       const checkLoginResponse = await baseAxios.post("/sign_in", {
         user: { ...userData },
@@ -40,7 +39,6 @@ const CreateUser = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(loginResponse.data);
       navigate("/loginHome");
       setAuth(loginResponse.data);
       // リクエスト成功時の処理を記述
