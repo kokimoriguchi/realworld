@@ -27,7 +27,6 @@ const Login = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(loginResponse.data);
       setAuth(loginResponse.data);
       navigate("/loginHome");
     } catch (error) {

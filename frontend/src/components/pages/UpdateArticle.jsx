@@ -41,7 +41,6 @@ const UpdateArticle = () => {
       await baseAxios.patch(`/api/articles/${id}`, {
         article: { ...updateData },
       });
-      console.log(updateData);
     } catch (error) {
       console.log(error);
     }

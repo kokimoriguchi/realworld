@@ -10,6 +10,7 @@ import LoginHome from "./components/pages/LoginHome";
 import Article from "./components/pages/Article";
 import DetailArticle from "./components/pages/DetailArticle";
 import UpdateArticle from "./components/pages/UpdateArticle";
+import Logout from "./components/pages/Logout";
 // import LoginHome from "./components/pages/LoginHome";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               <Route path="createArticle" element={<Article />} />
               <Route path="detailArticle/:id" element={<DetailArticle />} />
               <Route path="updateArticle/:id" element={<UpdateArticle />} />
+              <Route path="logout" element={<Logout />} />
             </Route>
           </Routes>
         </AuthProvider>

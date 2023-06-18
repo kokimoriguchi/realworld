@@ -39,41 +39,24 @@ plugins: [],
 @import "tailwindcss/utilities";
 ```
 
-## 認証部分
+## backend Rails 側での認証部分
 
 1. gem 'bcrypt', '~> 3.1.7'を有効にし gem jwt を記述し bundle install
 2. テーブルのカラムに password_digest を追加する。
 3. そのカラムを持つモデルファイルに has_secure_password を追加する。このようにすることで:password, :password_confirmation を渡すことで自動的に暗号にしてくれる。
 4. rails のディレクトリで mkdir auth && cd $\_を実施（auth ディレクトリ作成しそのディレクトリに移動する）
 5. openssl genrsa 2024 > service.key で service.key という名前の秘密鍵を作成する。openssl genrsa は秘密鍵を生成するコマンドであり、2024 は鍵の長さ（ビット数）を指定する引数です。
-6. application コントローラーに include ActionController::Cookies を追加し cookie 使用可能にする
-7. config/application ファイルに config.middleware.use ActionDispatch::Cookies を追加し機能渡せるようにしている。
+6. ~~application コントローラーに include ActionController::Cookies を追加し cookie 使用可能にする~~
+7. ~~config/application ファイルに config.middleware.use ActionDispatch::Cookies を追加し機能渡せるようにしている。~~
 8. rails g controller sessions でコントローラー作成しログイン作成する。
 9. controller 配下に api/v1 作成し users コントローラーの作成
-10. users コントローラーで作成したユーザーを sessions コントローラーで必要なパスワード等受け取り cookie に保存する。
+10. users コントローラーで作成したユーザーを sessions コントローラーで必要なパスワード等受け取り ~~cookie~~ に保存する。
 11. users コントローラーで SHOW アクション定義し、SHOW アクション用の route 用意し cookie 取得しデコードする。
 12. login 機能できたたら責務分割で app/service 配下に authentication＿service.rb ファイル作成し。モジュール作成で機能分割する。
 
-##　記事の CRUD 処理
+## frontend React 側での認証部分
 
-1. rails g model article title:string description:string body:string tag_list:string でモデルの作成
-2. 下記のようにマイグレーションファイルを書き null の無許可と user テーブルとの関連付けで user_id を付与する
-
-```
-class CreateArticles < ActiveRecord::Migration[7.0]
-  def change
-    create_table :articles do |t|
-      t.string :title, null: false
-      t.string :description, null: false
-      t.string :body, null: false
-      t.string :tag_list
-      t.references :user, foreign_key: true, null: false
-
-      t.timestamps
-    end
-  end
-end
-
-```
-
-3. rails g controller articles でコントローラーの作成
+1. ユーザークリエート画面にて user コントローラーの create アクション API を叩き、ユーザー作成する。
+2. そのデータと同じ email とパスワードを session コントローラーの sign_in ルートの API を叩くよう記述する。（そのデータをトークンにデコードしトークンが返却される。）
+3. 上記で受け取ったトークンを users の show アクションを叩く API の header に載せる。そのデータが DB に保存されていればトークンをエンコードしたデータが返却される。なければエラー。
+4. エンコードされたトークンのユーザー情報は auth コンポーネントの state にて管理して API 叩く際に header にその情報を載せる。
