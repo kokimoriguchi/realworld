@@ -29,6 +29,10 @@ const Header = () => {
   const handleLoginHomeClick = () => {
     navigate("loginHome");
   };
+
+  const handleLogoutClick = () => {
+    navigate("logout");
+  };
   return (
     <div className="flex justify-between items-center px-40 h-14">
       <div className="">
@@ -51,7 +55,12 @@ const Header = () => {
               >
                 🗒️New Article
               </li>
-              <li className="text-gray-400 hover:text-gray-500">☀︎Setting</li>
+              <li
+                className="text-gray-400 hover:text-gray-500"
+                onClick={handleLogoutClick}
+              >
+                ☀︎Setting
+              </li>
               <li className="text-gray-400 hover:text-gray-500">
                 user:{auth.user.name}
               </li>

@@ -23,7 +23,6 @@ const Article = () => {
       body: articleBodyRef.current.value,
       user_id: auth.user.id,
     };
-    console.log(articleData);
 
     try {
       const response = await baseAxios.post("/api/articles", {
