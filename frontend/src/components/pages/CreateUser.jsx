@@ -23,7 +23,6 @@ const CreateUser = () => {
       password: passwordRef.current.value,
       password_confirmation: passwordConfirmationRef.current.value,
     };
-    console.log(userData);
 
     try {
       await baseAxios.post("/api/users", {

@@ -5,11 +5,12 @@ import { AuthContext } from "../hooks/Auth";
 const Header = () => {
   const navigate = useNavigate();
   const { auth } = useContext(AuthContext);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!auth);
 
   useEffect(() => {
     setIsLoggedIn(!!auth);
   }, [auth]);
+
   const handleHomeClick = () => {
     navigate("home");
   };
@@ -62,7 +63,7 @@ const Header = () => {
                 ☀︎Setting
               </li>
               <li className="text-gray-400 hover:text-gray-500">
-                user:{auth.user.name}
+                user:{auth?.user?.name || ""}
               </li>
             </>
           ) : (

@@ -9,13 +9,13 @@ const Logout = () => {
   const [loginEmail, setLoginEmail] = useState("");
 
   const handleLogout = () => {
-    setAuth({});
+    setAuth(null);
     navigate("/home");
   };
 
   useEffect(() => {
-    setLoginName(auth.user.name || "");
-    setLoginEmail(auth.user.email || "");
+    setLoginName(auth?.user?.name || "");
+    setLoginEmail(auth?.user?.email || "");
   }, [auth]);
 
   return (
