@@ -11,7 +11,6 @@ import Article from "./components/pages/Article";
 import DetailArticle from "./components/pages/DetailArticle";
 import UpdateArticle from "./components/pages/UpdateArticle";
 import Logout from "./components/pages/Logout";
-// import LoginHome from "./components/pages/LoginHome";
 
 function App() {
   return (
@@ -20,10 +19,11 @@ function App() {
         <AuthProvider>
           <Header />
           <Routes>
-            <Route path="/">
-              <Route path="login" element={<Login />} />
-              <Route path="create_user" element={<CreateUser />} />
-              <Route path="home" element={<Home />} />
+            <Route>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/create_user" element={<CreateUser />} />
+              <Route path="/home" element={<Home />} />
               <Route path="loginHome" element={<LoginHome />} />
               <Route path="createArticle" element={<Article />} />
               <Route path="detailArticle/:id" element={<DetailArticle />} />
