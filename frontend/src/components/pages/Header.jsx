@@ -12,15 +12,15 @@ const Header = () => {
   }, [auth]);
 
   const handleHomeClick = () => {
-    navigate("home");
+    navigate("/home");
   };
 
   const handleSignInClick = () => {
-    navigate("login");
+    navigate("/login");
   };
 
   const handleSignUpClick = () => {
-    navigate("create_user");
+    navigate("/create_user");
   };
 
   const handleArticleClick = () => {
