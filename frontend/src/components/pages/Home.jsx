@@ -3,7 +3,6 @@ import baseAxios from "../hooks/axios";
 
 const Home = () => {
   const [allArticles, setAllArticles] = useState([]);
-  const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
     const indexArticle = async () => {
@@ -16,18 +15,6 @@ const Home = () => {
       }
     };
     indexArticle();
-  }, []);
-
-  useEffect(() => {
-    const allUsers = async () => {
-      try {
-        const responseUsers = await baseAxios.get("api/users");
-        setAllUsers(responseUsers.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    allUsers();
   }, []);
 
   return (
@@ -44,12 +31,7 @@ const Home = () => {
             {allArticles.map((article, index) => (
               <div key={index}>
                 <div className="pb-3">
-                  {allUsers.map((user, index) => {
-                    if (user.id === article.user_id) {
-                      return <p key={index}>☺️{user.name}</p>;
-                    }
-                    return null;
-                  })}
+                  <p>{article.user.name}</p>
                   <p className="opacity-30 text-xs">{article.created_at}</p>
                 </div>
                 <div className="h-40">

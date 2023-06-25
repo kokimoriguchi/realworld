@@ -1,20 +1,22 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import baseAxios from "../hooks/axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../hooks/Auth";
 
 const UpdateArticle = () => {
-  const { id } = useParams();
+  const { userId, articleId } = useParams();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [body, setBody] = useState("");
   const [tagList, setTagList] = useState("");
+  const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     const getUpdateArticle = async () => {
       try {
-        const response = await baseAxios.get(`api/articles/${id}`);
+        const response = await baseAxios.get(`api/articles/${articleId}`);
         const responseData = response.data.article;
         // useEffect内で各stateを更新することでinput内の表示を可能にしている。または空文字を入れておかないと注意が出る。
         setTitle(responseData.title || "");
@@ -26,7 +28,7 @@ const UpdateArticle = () => {
       }
     };
     getUpdateArticle();
-  }, [id]);
+  }, [articleId]);
 
   const handleUpdateArticle = async (e) => {
     e.preventDefault();
@@ -38,9 +40,17 @@ const UpdateArticle = () => {
     };
 
     try {
-      await baseAxios.patch(`/api/articles/${id}`, {
-        article: { ...updateData },
-      });
+      await baseAxios.patch(
+        `/api/articles/${articleId}`,
+        {
+          article: { ...updateData },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${auth}`,
+          },
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -48,7 +58,7 @@ const UpdateArticle = () => {
     setDescription("");
     setBody("");
     setTagList("");
-    navigate(`/detailArticle/${id}`);
+    navigate(`/loginHome/${userId}/detailArticle/${articleId}`);
   };
 
   return (

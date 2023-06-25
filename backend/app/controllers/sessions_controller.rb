@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
 
     # JWTの作成
     token = JWT.encode(payload, rsa_private, "RS256")
-    cookies[:token] = token
     render json: { status: 'CREATED', token: token }
   end
 
