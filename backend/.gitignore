@@ -29,4 +29,3 @@
 /config/master.key
 .env
 auth/
-/auth/service.key
