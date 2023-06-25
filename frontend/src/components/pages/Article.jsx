@@ -2,6 +2,7 @@ import { useRef, useContext } from "react";
 import { AuthContext } from "../hooks/Auth";
 import baseAxios from "../hooks/axios";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Article = () => {
   const articleTitleRef = useRef();
@@ -9,10 +10,11 @@ const Article = () => {
   const articleBodyRef = useRef();
   const articleTagRef = useRef();
   const { auth } = useContext(AuthContext);
+  const { userId } = useParams();
   const navigate = useNavigate();
 
   const backHome = () => {
-    navigate("/loginHome");
+    navigate(`/loginHome/${userId}`);
   };
 
   const CreateArticle = async (e) => {
@@ -21,13 +23,22 @@ const Article = () => {
       title: articleTitleRef.current.value,
       description: articleDescriptionRef.current.value,
       body: articleBodyRef.current.value,
-      user_id: auth.user.id,
+      user_id: userId,
     };
 
     try {
-      const response = await baseAxios.post("/api/articles", {
-        article: { ...articleData },
-      });
+      const response = await baseAxios.post(
+        // axios.postの第2引数はデータを指定するため、ヘッダーは第3引数に設定する必要がある
+        "/api/articles",
+        {
+          article: { ...articleData },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${auth}`,
+          },
+        }
+      );
       console.log(response.data);
     } catch (error) {
       console.log(error);

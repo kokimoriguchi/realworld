@@ -1,14 +1,14 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import baseAxios from "../hooks/axios";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../hooks/Auth";
 
 const LoginHome = () => {
+  const { userId } = useParams();
   const [allArticles, setAllArticles] = useState([]);
   const navigate = useNavigate();
   const [feed, setFeed] = useState(true);
-  const [allUsers, setAllUsers] = useState([]);
-  const { auth } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true); // ローディング状態を管理するステート
 
   useEffect(() => {
     const indexArticle = async () => {
@@ -20,22 +20,11 @@ const LoginHome = () => {
       }
     };
     indexArticle();
-  }, []);
-
-  useEffect(() => {
-    const allUsers = async () => {
-      try {
-        const responseUsers = await baseAxios.get("api/users");
-        setAllUsers(responseUsers.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    allUsers();
+    setLoading(false); // ローディングが完了したらローディング状態をfalseに設定
   }, []);
 
   const handleDetailArticle = (article) => {
-    navigate(`/detailArticle/${article.id}`);
+    navigate(`/loginHome/${userId}/detailArticle/${article.id}`);
   };
 
   const handleMyFeed = () => {
@@ -45,6 +34,10 @@ const LoginHome = () => {
   const handleGlobalFeed = () => {
     setFeed(true);
   };
+
+  if (loading) {
+    return <div>Loading...</div>; // ローディング中の表示
+  }
 
   return (
     <div>
@@ -90,12 +83,7 @@ const LoginHome = () => {
               ? allArticles.map((article, index) => (
                   <div key={index}>
                     <div className="pb-3">
-                      {allUsers.map((user, index) => {
-                        if (user.id === article.user_id) {
-                          return <p key={index}>☺️{user.name}</p>;
-                        }
-                        return null;
-                      })}
+                      <p>{article.user.name}</p>
                       <p className="opacity-30 text-xs">{article.created_at}</p>
                     </div>
                     <div
@@ -110,11 +98,11 @@ const LoginHome = () => {
                   </div>
                 ))
               : allArticles
-                  .filter((article) => article.user_id === auth.user.id)
+                  .filter((article) => article.user_id === parseInt(userId))
                   .map((article, index) => (
                     <div key={index}>
                       <div className="pb-3">
-                        <p>☺️{auth.user.name}</p>
+                        <p>☺️{article.user.name}</p>
                         <p className="opacity-30 text-xs">
                           {article.created_at}
                         </p>

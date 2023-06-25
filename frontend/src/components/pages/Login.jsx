@@ -20,15 +20,15 @@ const Login = () => {
       const checkLoginResponse = await baseAxios.post("/sign_in", {
         user: { ...loginDate },
       });
-      const token = checkLoginResponse.data.token; // トークンを取得
+      const auth = checkLoginResponse.data.token; // トークンを取得
 
       const loginResponse = await baseAxios.get("/api/user", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${auth}`,
         },
       });
-      setAuth(loginResponse.data);
-      navigate("/loginHome");
+      setAuth(auth);
+      navigate(`/loginHome/${loginResponse.data.user.id}`);
     } catch (error) {
       console.log(error);
       alert("loginに失敗しました");

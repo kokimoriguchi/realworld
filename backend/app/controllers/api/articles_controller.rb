@@ -1,11 +1,11 @@
 class Api::ArticlesController < ApplicationController
-  # include Authenticatable
-  # before_action :authenticate_with_token!, only: [:create, :destroy, :update]
+  include Authenticatable
+  before_action :authenticate_with_token!, only: [:create, :destroy, :update]
 
 
   def index
-    articles = Article.all
-    render json: { status: 'SUCCESS', data: articles }
+    articles = Article.includes(:user).all
+    render json: { status: 'SUCCESS', data: articles.as_json(include: { user: { only: :name } }) }
   end
 
   def create
