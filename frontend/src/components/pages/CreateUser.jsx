@@ -32,14 +32,14 @@ const CreateUser = () => {
       const checkLoginResponse = await baseAxios.post("/sign_in", {
         user: { ...userData },
       });
-      const token = checkLoginResponse.data.token; // トークンを取得
+      const auth = checkLoginResponse.data.token; // トークンを取得
       const loginResponse = await baseAxios.get("/api/user", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${auth}`,
         },
       });
-      navigate("/loginHome");
-      setAuth(loginResponse.data);
+      navigate(`/loginHome/${loginResponse.data.user.id}`);
+      setAuth(auth);
       // リクエスト成功時の処理を記述
     } catch (error) {
       console.log(error);

@@ -1,14 +1,34 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../hooks/Auth";
+import baseAxios from "../hooks/axios";
 
 const Header = () => {
   const navigate = useNavigate();
   const { auth } = useContext(AuthContext);
   const [isLoggedIn, setIsLoggedIn] = useState(!!auth);
+  const [userData, setUserDate] = useState();
 
   useEffect(() => {
     setIsLoggedIn(!!auth);
+  }, [auth]);
+
+  useEffect(() => {
+    const getDate = async () => {
+      try {
+        const loginUser = await baseAxios.get(`api/user`, {
+          headers: {
+            Authorization: `Bearer ${auth}`,
+          },
+        });
+        setUserDate(loginUser.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (auth) {
+      getDate();
+    }
   }, [auth]);
 
   const handleHomeClick = () => {
@@ -24,15 +44,15 @@ const Header = () => {
   };
 
   const handleArticleClick = () => {
-    navigate("createArticle");
+    navigate(`loginHome/${userData.user.id}/createArticle`);
   };
 
   const handleLoginHomeClick = () => {
-    navigate("loginHome");
+    navigate(`loginHome/${userData.user.id}`);
   };
 
   const handleLogoutClick = () => {
-    navigate("logout");
+    navigate(`loginHome/${userData.user.id}/logout`);
   };
   return (
     <div className="flex justify-between items-center px-40 h-14">
@@ -63,7 +83,7 @@ const Header = () => {
                 ☀︎Setting
               </li>
               <li className="text-gray-400 hover:text-gray-500">
-                user:{auth?.user?.name || ""}
+                user:{userData?.user?.name || ""}
               </li>
             </>
           ) : (

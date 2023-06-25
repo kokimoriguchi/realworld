@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   include Authenticatable
-  before_action :authenticate_with_token!, only: [:show]
+  before_action :authenticate_with_token!, only: [:show, :index]
 
   def index
     users = User.all
@@ -21,7 +21,6 @@ class Api::UsersController < ApplicationController
       user: {
         id: current_user.id,
         name: current_user.name,
-        email: current_user.email
       }
     }, status: :ok
   end

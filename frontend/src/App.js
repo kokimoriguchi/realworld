@@ -19,17 +19,24 @@ function App() {
         <AuthProvider>
           <Header />
           <Routes>
-            <Route>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/create_user" element={<CreateUser />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="loginHome" element={<LoginHome />} />
-              <Route path="createArticle" element={<Article />} />
-              <Route path="detailArticle/:id" element={<DetailArticle />} />
-              <Route path="updateArticle/:id" element={<UpdateArticle />} />
-              <Route path="logout" element={<Logout />} />
-            </Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/create_user" element={<CreateUser />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="loginHome/:userId" element={<LoginHome />} />
+            <Route
+              path="loginHome/:userId/createArticle"
+              element={<Article />}
+            />
+            <Route
+              path="loginHome/:userId/detailArticle/:articleId"
+              element={<DetailArticle />}
+            />
+            <Route
+              path="loginHome/:userId/detailArticle/:articleId/update"
+              element={<UpdateArticle />}
+            />
+            <Route path="loginHome/:userId/logout" element={<Logout />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

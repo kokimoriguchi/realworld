@@ -5,30 +5,34 @@ import baseAxios from "../hooks/axios";
 import { useNavigate } from "react-router-dom";
 
 const DetailArticle = () => {
-  const { id } = useParams();
+  const { userId, articleId } = useParams();
   const { auth } = useContext(AuthContext);
   const [showArticle, setShowArticle] = useState({});
   const navigate = useNavigate();
 
   const deleteArticle = () => {
-    navigate("/loginHome");
+    navigate(`/loginHome/${userId}`);
   };
 
   useEffect(() => {
     const getArticle = async () => {
       try {
-        const response = await baseAxios.get(`api/articles/${id}`);
+        const response = await baseAxios.get(`api/articles/${articleId}`);
         setShowArticle(response.data.article);
       } catch (error) {
         console.log(error);
       }
     };
     getArticle();
-  }, [id]);
+  }, [articleId]);
 
   const handleArticleDelete = async () => {
     try {
-      await baseAxios.delete(`api/articles/${id}`);
+      await baseAxios.delete(`api/articles/${articleId}`, {
+        headers: {
+          Authorization: `Bearer ${auth}`,
+        },
+      });
       deleteArticle();
     } catch (error) {
       console.log(error);
@@ -42,11 +46,15 @@ const DetailArticle = () => {
           <h1 className="text-4xl py-8 pl-10">{showArticle.title}</h1>
           <div className="flex flex-row h-auto pl-10">
             <div className="pr-10">{showArticle.description}</div>
-            {auth.user.id === showArticle.user_id ? (
+            {parseInt(userId) === showArticle.user_id ? (
               <div className="pb-10">
                 <button
                   className="border-opacity-80 border-2 text-opacity-75 hover:test-white hover:bg-gray-100 duration-300 hover:bg-opacity-50 text-stone-50 border-stone-50 text-xs mr-3 rounded-sm"
-                  onClick={() => navigate(`/updateArticle/${showArticle.id}`)}
+                  onClick={() =>
+                    navigate(
+                      `/loginHome/${userId}/detailArticle/${articleId}/update`
+                    )
+                  }
                 >
                   ✍️Edit Article
                 </button>
