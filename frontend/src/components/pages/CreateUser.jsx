@@ -29,7 +29,7 @@ const CreateUser = () => {
         user: { ...userData },
       });
 
-      const checkLoginResponse = await baseAxios.post("/sign_in", {
+      const checkLoginResponse = await baseAxios.post("/api/sign_in", {
         user: { ...userData },
       });
       const auth = checkLoginResponse.data.token; // トークンを取得

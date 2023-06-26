@@ -17,7 +17,7 @@ const Login = () => {
     };
 
     try {
-      const checkLoginResponse = await baseAxios.post("/sign_in", {
+      const checkLoginResponse = await baseAxios.post("/api/sign_in", {
         user: { ...loginDate },
       });
       const auth = checkLoginResponse.data.token; // トークンを取得

@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
   def create
     # ユーザの取得
     # seviceディレクトリ内のファイルでモジュールの定義しているのでAuthenticationServiceにそのファイルのメソッド記述で使用可能。

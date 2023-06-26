@@ -3,6 +3,6 @@ Rails.application.routes.draw do
     resources :users
     resources :articles
     resource :user, only: [:show]
+    post "/sign_in", to: "sessions#create"
   end
-  post "/sign_in", to: "sessions#create"
 end
