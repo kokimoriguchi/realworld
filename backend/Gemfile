@@ -49,3 +49,7 @@ end
 gem 'dotenv-rails'
 gem 'dotenv'
 gem 'jwt'
+
+group :production, :staging do
+    gem 'unicorn'
+end
